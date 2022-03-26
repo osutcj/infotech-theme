@@ -2,32 +2,6 @@
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
 
-{{!-- {{#match @custom.publication_cover_style "!=" "None"}} --}}
-    {{!-- <div class="site-header-content{{#match @custom.publication_cover_style "Large"}} large{{/match}}"> --}}
-        {{!-- {{#if @site.cover_image}} --}}
-            {{!-- This is a responsive image, it loads different sizes depending on device
-            https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
-            {{!-- <img class="site-header-cover" --}}
-                {{!-- srcset="{{img_url @site.cover_image size="s"}} 300w, --}}
-                        {{!-- {{img_url @site.cover_image size="m"}} 600w, --}}
-                        {{!-- {{img_url @site.cover_image size="l"}} 1000w, --}}
-                        {{!-- {{img_url @site.cover_image size="xl"}} 2000w" --}}
-                {{!-- sizes="100vw" --}}
-                {{!-- src="{{img_url @site.cover_image size="xl"}}" --}}
-                {{!-- alt="" --}}
-            {{!-- /> --}}
-        {{!-- {{/if}} --}}
-        {{!-- <h1 class="site-title"> --}}
-            {{!-- {{#if @site.logo}} --}}
-                {{!-- <img class="site-logo" src="{{img_url @site.logo size="m"}}" alt="{{@site.title}}" /> --}}
-            {{!-- {{else}} --}}
-                {{!-- {{@site.title}} --}}
-            {{!-- {{/if}} --}}
-        {{!-- </h1> --}}
-        {{!-- <p>{{@site.description}}</p> --}}
-    {{!-- </div> --}}
-{{!-- {{/match}} --}}
-
 <style>
 .custom-glow-white {
     filter: drop-shadow(0px 0px 22px rgb(255 255 255 / 0.5));
@@ -65,40 +39,495 @@ into the {body} of the default.hbs template --}}
     90% { opacity:1; width: 100%; }
     100% { opacity:1; }
 }
+
+.gmap_canvas {
+    position: relative;
+    padding-bottom: 100%;
+    height: 0;
+    overflow: hidden;
+    iframe {
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
 </style>
 
-<div class="w-full bg-black flex justify-center py-24 md:py-96" >
+<section
+    class="w-full bg-black m-auto pt-16 md:pt-32"
+>
+    <div
+        class="max-w-[1200px] m-auto"
+    >
+        <div
+            class="flex flex-row justify-around flex-wrap align-center py-8 md:py-16 gap-8"
+        >
+            <img
+                class="opacity-50 h-[32px] md:h-[64px] lg:h-[80px]"
+                src="{{asset 'images/ut_logo.svg'}}"
+            />
+            <img
+                class="opacity-50 h-[32px] md:h-[64px] lg:h-[80px]"
+                src="{{asset 'images/discover_logo.svg'}}"
+            />
+            <img
+                class="opacity-50 h-[32px] md:h-[64px] lg:h-[80px]"
+                src="{{asset 'images/osut_logo.svg'}}"
+            />
+        </div>
+    </div>
+</section>
+
+<div class="w-full bg-black flex justify-center pt-12 md:pt-48 pb-6 md:pb-32" >
     <div
         class="flex flex-row justify-center items-center gap-4 md:gap-16 lg:gap-20"
     >
         <img
-            class="custom-glow-white h-[44px] md:h-[176px] lg:h-[221px]"
+            class="custom-glow-white h-[88px] md:h-[176px] lg:h-[221px]"
             src="{{asset 'images/it_logo.svg'}}"
         />
         <div
-            class="custom-grow"
+            class="hidden md:block custom-grow"
         >
             <img
-                class="h-[25px] min-w-[120px] md:h-[100px] md:min-w[480px] lg:h-[125px] lg:min-w-[600px]"
+                class="h-[43.75px] min-w-[120px] md:h-[100px] md:min-w[480px] lg:h-[125px] lg:min-w-[600px]"
                 src="{{asset 'images/it_logo_text.svg'}}"
             />
         </div>
+        <img
+            class="block md:hidden h-[60px] min-w-[120px] md:h-[100px] md:min-w[480px] lg:h-[125px] lg:min-w-[600px]"
+            src="{{asset 'images/it_logo_text.svg'}}"
+        />
     </div>
 </div>
 
+<section
+    class="w-full bg-black m-auto pb-12 md:pb-32"
+>
+    <div
+        class="max-w-sm md:max-w-[1200px] m-auto opacity-75"
+    >
+        <div
+            class="text-white flex flex-col justify-center flex-wrap align-center py-8 md:py-16 gap-8"
+        >
+            <span
+                class="text-center font-['Nunito'] text-3xl md:text-5xl lg:text-7xl"
+            >Fă primul pas spre cariera ta de succes!</span>
+            <span
+                class="text-center font-['Nunito'] text-3xl md:text-5xl lg:text-7xl"
+            >28 martie - 9 aprilie 2022</span>
+        </div>
+    </div>
+</section>
+
+<section
+    class="w-full bg-white m-auto py-12 md:py-32 font-['Nunito']"
+>
+    <div
+        class="p-16 md:max-w-[1200px] md:m-auto
+        grid gap-8 grid-cols-1 grid-rows-2
+        md:grid-cols-2 md:grid-rows-1"
+    >
+        <div>
+            <h3
+                class="text-5xl md:text-6xl lg:text-7xl"
+            >
+                Ce este Infotech?
+            </h3>
+            <div class="md:text-4xl mt-8">
+                Infotech este unul dintre cele mai mari proiecte marca OSUT Cluj, având o deschidere amplă înspre comunitatea academică clujeană. Timp de 5 zile, studenții au posibilitatea de acomunica în mod direct cu angajatorii și de a participa la activități organizate de către firme, precum training-uri de dezvoltare profesională, workshop-uri tehnice sau competiții practice. Pentru a include toți studenții din Universitatea Tehnică, proiectul Infotech se divizează în trei subproiecte, câte unul pentru fiecare ramură, în funcție de domeniile de studiu.
+            </div>
+        </div>
+        <div
+            class="flex justify-center flex-col gap-8 -mt-96 md:-mt-0"
+        >
+            <div class="flex flex-col md:flex-row justify-start items-center gap-8">
+                <img
+                    class="h-[96px]"
+                    src="{{asset 'images/mt_logo.svg'}}"
+                />
+                <div>
+                    <h3
+                        class="text-center md:text-left text-4xl font-bold text-[#d65f0d]"
+                    >mecanictech</h3>
+                    Obținerea unui loc de muncă poate fi un mecanism complex. Mecanictech vine în ajutorul studenților de la Facultatea de Construcții de Mașini, Facultatea de Autovehicule Rutiere, Mecatronică și Mecanică și Facultatea de Ingineria Materialelor și a Mediului.
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-start items-center gap-8">
+                <img
+                    class="h-[96px]"
+                    src="{{asset 'images/et_logo.svg'}}"
+                />
+                <div>
+                    <h3
+                        class="text-center md:text-left text-4xl font-bold text-[#b20033]"
+                    >electrotech</h3>
+                    În cadrul Electrotech, noi conectăm studenții de la Facultatea de Electronică, Telecomunicații și Tehnologia Informației, Facultatea de Automatică și Calculatoare și Facultatea de Inginerie Electrică cu angajatorii.
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-start items-center gap-8">
+                <img
+                    class="h-[96px]"
+                    src="{{asset 'images/ci_logo.svg'}}"
+                />
+                <div>
+                    <h3
+                        class="text-center md:text-left text-4xl font-bold text-[#008269]"
+                    >constructinfo</h3>
+                    Cu ajutorul Constructinfo, studenții de la Facultatea de Construcții, Facultatea de Arhitectură și Urbanism și Facultatea de Inginerie a Instalațiilor au posibilitatea de a-și clădi un viitor mai bun.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section
+    class="w-full bg-white m-auto py-12 md:py-32 font-['Nunito']"
+>
+    <div
+        class="md:p-16 md:max-w-[1200px] md:m-auto
+        grid gap-8 grid-cols-1 grid-rows-2
+        md:grid-cols-2 md:grid-rows-1"
+        x-data="{ selected: 'MT' }"
+    >
+        <div
+            class="-mt-16 md:-mt-0 order-last md:order-first"
+        >
+            <div
+                x-show="selected === 'MT'"
+                class="mapouter">
+                <div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=Bulevardul%20Muncii%20103-105&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="480" height="480" allowfullscreen></iframe></div></div>
+            <div
+                x-show="selected === 'ET'"
+                class="mapouter">
+                <div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=Baritiu%2026-28&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="480" height="480" allowfullscreen></iframe></div></div>
+            <div
+                x-show="selected === 'CI'"
+                class="mapouter">
+                <div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=Baritiu%2025&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="480" height="480" allowfullscreen></iframe></div></div>
+        </div>
+        <div
+            class="p-16"
+        >
+            <h3
+                class="text-center md:text-left text-5xl md:text-6xl lg:text-7xl mb-16"
+            >
+                Locație
+                <span
+                    x-show="selected === 'MT'"
+                    class="font-bold text-[#d65f0d]"
+                >mecanictech</span>
+                <span
+                    x-show="selected === 'ET'"
+                    class="font-bold text-[#b20033]"
+                >electrotech</span>
+                <span
+                    x-show="selected === 'CI'"
+                    class="font-bold text-[#008269]"
+                >constructinfo</span>
+            </h3>
+            <div
+                class="flex items-center md:items-start w-full gap-4 justify-center md:justify-start"
+            >
+                <input
+                    x-model="selected"
+                    class="appearance-none rounded-lg
+                        cursor-pointer
+                        w-24 h-24
+                        after:m-4 after:w-16 after:h-16
+                        bg-orange-200 after:block after:bg-[url('{{asset 'images/mt_logo.svg'}}')]
+                        after:absolute  after:bg-no-repeat after:bg-center
+                        checked:bg-orange-500 checked:after:bg-[url('{{asset 'images/mt_logo_white.svg'}}')]
+                    "
+                    type="radio" id="mt_location" name="location_map" value="MT" autocomplete="off" checked>
+                <input
+                    x-model="selected"
+                    class="appearance-none rounded-lg
+                        cursor-pointer
+                        w-24 h-24
+                        after:m-4 after:w-16 after:h-16
+                        bg-red-200 after:block after:bg-[url('{{asset 'images/et_logo.svg'}}')]
+                        after:absolute  after:bg-no-repeat after:bg-center
+                        checked:bg-red-500 checked:after:bg-[url('{{asset 'images/et_logo_white.svg'}}')]
+                    "
+                    type="radio" id="et_location" name="location_map" value="ET" autocomplete="off">
+                <input
+                    x-model="selected"
+                    class="appearance-none rounded-lg
+                        cursor-pointer
+                        w-24 h-24
+                        after:m-4 after:w-16 after:h-16
+                        bg-teal-200 after:block after:bg-[url('{{asset 'images/ci_logo.svg'}}')]
+                        after:absolute  after:bg-no-repeat after:bg-center
+                        checked:bg-teal-500 checked:after:bg-[url('{{asset 'images/ci_logo_white.svg'}}')]
+                    "
+                    type="radio" id="ci_location" name="location_map" value="CI" autocomplete="off" >
+            </div>
+            <div
+                class="text-center md:text-left"
+                x-show="selected === 'MT'"
+            >
+                <br>
+                Bulevardul Muncii 103-105
+            </div>
+            <div
+                class="text-center md:text-left"
+                x-show="selected === 'ET'"
+            >
+                <br>
+                Strada George Barițiu 26-28
+            </div>
+            <div
+                class="text-center md:text-left"
+                x-show="selected === 'CI'"
+            >
+                <br>
+                Strada George Barițiu 25
+            </div>
+        </div>
+    </div>
+</section>
+
+<section
+    class="w-full bg-black m-auto py-12 md:py-24"
+>
+    <div
+        class="max-w-md md:max-w-[1200px] m-auto text-5xl md:text-7xl text-white text-center"
+    >
+        Sponsori principali:
+    </div>
+</section>
+
+<section
+    class="w-full bg-white m-auto"
+>
+    <div
+        class="max-w-sm md:max-w-[1200px] m-auto text-7xl flex flex-wrap flex-row items-center justify-around"
+    >
+        <img
+            class="w-96 md:w-[480px]"
+            src="{{asset 'images/sponsors/1/Continental.svg'}}"
+        />
+        <img
+            class="w-96 md:w-[480px]"
+            src="{{asset 'images/sponsors/1/DeLonghi.svg'}}"
+        />
+    </div>
+</section>
+
+<section
+    class="w-full bg-black m-auto py-12 md:py-24"
+>
+    <div
+        class="max-w-md md:max-w-[1200px] m-auto text-5xl md:text-7xl text-white text-center"
+    >
+        Sponsori diamond:
+    </div>
+</section>
+
+<section
+    class="w-full bg-white m-auto"
+>
+    <div
+        class="max-w-sm md:max-w-[1200px] m-auto text-7xl flex flex-wrap flex-row items-center justify-around"
+    >
+        <img
+            class="w-72 md:w-[400px]"
+            src="{{asset 'images/sponsors/2/Mateco.svg'}}"
+        />
+    </div>
+</section>
+
+<section
+    class="w-full bg-black m-auto py-12 md:py-24"
+>
+    <div
+        class="max-w-md md:max-w-[1200px] m-auto text-5xl md:text-7xl text-white text-center"
+    >
+        Sponsori platinum:
+    </div>
+</section>
+
+<section
+    class="w-full bg-white m-auto"
+>
+    <div
+        class="max-w-sm md:max-w-[1200px] m-auto text-7xl flex flex-wrap flex-row items-center justify-around"
+    >
+        <img
+            class="w-64 md:w-[300px]"
+            src="{{asset 'images/sponsors/3/Kesz.svg'}}"
+        />
+        <img
+            class="w-64 md:w-[300px]"
+            src="{{asset 'images/sponsors/3/Autonet.svg'}}"
+        />
+    </div>
+</section>
+
+<section
+    class="w-full bg-black m-auto py-12 md:py-24"
+>
+    <div
+        class="max-w-md md:max-w-[1200px] m-auto text-5xl md:text-7xl text-white text-center"
+    >
+        Sponsori gold:
+    </div>
+</section>
+
+<section
+    class="w-full bg-white m-auto"
+>
+    <div
+        class="max-w-sm md:max-w-[1200px] m-auto text-7xl flex flex-wrap flex-row items-center justify-around"
+    >
+        <img
+            class="w-48 md:w-[260px]"
+            src="{{asset 'images/sponsors/4/Yonder.svg'}}"
+        />
+        <img
+            class="w-48 md:w-[260px]"
+            src="{{asset 'images/sponsors/4/Synopsys.svg'}}"
+        />
+        <img
+            class="w-48 md:w-[260px]"
+            src="{{asset 'images/sponsors/4/Power Design.svg'}}"
+        />
+        <img
+            class="w-48 md:w-[260px]"
+            src="{{asset 'images/sponsors/4/Holcim.svg'}}"
+        />
+        <img
+            class="w-48 md:w-[260px]"
+            src="{{asset 'images/sponsors/4/Hilti.svg'}}"
+        />
+        <img
+            class="w-48 md:w-[260px]"
+            src="{{asset 'images/sponsors/4/Fastenal.svg'}}"
+        />
+        <img
+            class="w-48 md:w-[260px]"
+            src="{{asset 'images/sponsors/4/FANUC.svg'}}"
+        />
+        <img
+            class="w-48 md:w-[260px]"
+            src="{{asset 'images/sponsors/4/Consolis.svg'}}"
+        />
+        <img
+            class="w-48 md:w-[260px]"
+            src="{{asset 'images/sponsors/4/ASA.svg'}}"
+        />
+        <img
+            class="w-48 md:w-[260px]"
+            src="{{asset 'images/sponsors/4/ArtSoft.svg'}}"
+        />
+    </div>
+</section>
+
+<section
+    class="w-full bg-black m-auto py-12 md:py-24"
+>
+    <div
+        class="max-w-md md:max-w-[1200px] m-auto text-5xl md:text-7xl text-white text-center"
+    >
+        Sponsori silver:
+    </div>
+</section>
+
+<section
+    class="w-full bg-white m-auto"
+>
+    <div
+        class="max-w-sm md:max-w-[1200px] m-auto text-7xl flex flex-wrap flex-row items-center justify-around"
+    >
+        <img
+            class="w-40 md:w-[200px]"
+            src="{{asset 'images/sponsors/5/ULMA.svg'}}"
+        />
+        <img
+            class="w-40 md:w-[200px]"
+            src="{{asset 'images/sponsors/5/Marina.svg'}}"
+        />
+        <img
+            class="w-40 md:w-[200px]"
+            src="{{asset 'images/sponsors/5/IRSAP.svg'}}"
+        />
+        <img
+            class="w-40 md:w-[200px]"
+            src="{{asset 'images/sponsors/5/IKON.svg'}}"
+        />
+    </div>
+</section>
+
+<section
+    class="w-full bg-black m-auto py-12 md:py-24"
+>
+    <div
+        class="max-w-md md:max-w-[1200px] m-auto text-5xl md:text-7xl text-white text-center"
+    >
+        Sponsori bronz:
+    </div>
+</section>
+
+<section
+    class="w-full bg-white m-auto"
+>
+    <div
+        class="max-w-sm md:max-w-[1200px] m-auto text-7xl flex flex-wrap flex-row items-center justify-around"
+    >
+        <img
+            class="w-36 md:w-[160px]"
+            src="{{asset 'images/sponsors/6/Nagarro.svg'}}"
+        />
+        <img
+            class="w-36 md:w-[160px]"
+            src="{{asset 'images/sponsors/6/Kastamonu.svg'}}"
+        />
+        <img
+            class="w-36 md:w-[160px]"
+            src="{{asset 'images/sponsors/6/Evident.svg'}}"
+        />
+    </div>
+</section>
+
+<section
+    class="w-full bg-black m-auto py-12 md:py-24"
+>
+    <div
+        class="max-w-md md:max-w-[1200px] m-auto text-5xl md:text-7xl text-white text-center"
+    >
+        Parteneri media:
+    </div>
+</section>
+
+<section
+    class="w-full bg-white m-auto"
+>
+    <div
+        class="max-w-sm md:max-w-[1200px] m-auto text-7xl flex flex-wrap flex-row items-center justify-around"
+    >
+        <img
+            class="w-40 md:w-[300px]"
+            src="{{asset 'images/sponsors/7/Târgul de Cariere.svg'}}"
+        />
+    </div>
+</section>
+
 
 {{!-- The main content area --}}
-<main id="site-main" class="site-main outer">
+{{!-- <main id="site-main" class="site-main outer">
     <div class="inner posts">
 
         <div class="post-feed{{#match @custom.feed_layout "List"}} list{{/match}}">
             {{#foreach posts}}
 
-                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
                 {{> "post-card"}}
 
             {{/foreach}}
         </div>
 
     </div>
-</main>
+</main> --}}
